@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Navigate, useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 
 export default function SignUp() {
@@ -33,7 +33,7 @@ export default function SignUp() {
       const data = await res.json();
       if(data.success === false){
         setLoading(false);
-        setError('User already exists');
+        setError(data.message);
         return;
       }
       
