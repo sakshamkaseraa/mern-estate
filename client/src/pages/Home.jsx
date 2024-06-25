@@ -5,13 +5,13 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
+import Typewriter from "typewriter-effect";
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
-  console.log(offerListings);
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
@@ -52,7 +52,13 @@ export default function Home() {
         <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
           Find your next <span className="text-slate-500">perfect</span>
           <br />
-          place with ease
+          <Typewriter
+            options={{
+              strings: ["place for you"], // Array of strings to be typed
+              autoStart: true, // Auto starts the typewriter on mount
+              loop: true, // Sets looping of typing animation infinitely
+            }}
+          />
         </h1>
         <div className="text-gray-400 text-xs sm:text-sm">
           Kasera Estate is the best place to find your next perfect place to
