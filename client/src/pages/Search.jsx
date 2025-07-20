@@ -124,23 +124,24 @@ export default function Search() {
   };
   return (
     <div className="flex flex-col md:flex-row">
-      <div className="p-7  border-b-2 md:border-r-2 md:min-h-screen">
+      {/* Sidebar */}
+      <div className="p-7 border-b-2 md:border-r-2 md:min-h-screen bg-background">
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           <div className="flex items-center gap-2">
-            <label className="whitespace-nowrap font-semibold">
+            <label className="whitespace-nowrap font-semibold text-secondary">
               Search Term:
             </label>
             <input
               type="text"
               id="searchTerm"
               placeholder="Search..."
-              className="border rounded-lg p-3 w-full"
+              className="border border-accent bg-surface text-text rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-accent transition"
               value={sidebardata.searchTerm}
               onChange={handleChange}
             />
           </div>
           <div className="flex gap-2 flex-wrap items-center">
-            <label className="font-semibold">Type:</label>
+            <label className="font-semibold text-secondary">Type:</label>
             <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -183,7 +184,7 @@ export default function Search() {
             </div>
           </div>
           <div className="flex gap-2 flex-wrap items-center">
-            <label className="font-semibold">Amenities:</label>
+            <label className="font-semibold text-secondary">Amenities:</label>
             <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -206,12 +207,12 @@ export default function Search() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <label className="font-semibold">Sort:</label>
+            <label className="font-semibold text-secondary">Sort:</label>
             <select
               onChange={handleChange}
               defaultValue={"created_at_desc"}
               id="sort_order"
-              className="border rounded-lg p-3"
+              className="border border-accent bg-surface text-text rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-accent transition"
             >
               <option value="regularPrice_desc">Price high to low</option>
               <option value="regularPrice_asc">Price low to high</option>
@@ -219,20 +220,22 @@ export default function Search() {
               <option value="createdAt_asc">Oldest</option>
             </select>
           </div>
-          <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95">
+          <button className="bg-accent text-primary p-3 rounded-lg uppercase hover:opacity-90 transition">
             Search
           </button>
         </form>
       </div>
+
+      {/* Listings Section */}
       <div className="flex-1">
-        <h1 className="text-3xl font-semibold border-b p-3 text-slate-700 mt-5">
+        <h1 className="text-3xl font-semibold border-b p-3 text-secondary mt-5">
           Listing results:
         </h1>
         <div className="p-7 flex flex-wrap gap-4">
           {!loading && listings.length === 0 && (
-            <p className="text-xl text-slate-700">No Listing Found</p>
+            <p className="text-xl text-secondary">No Listing Found</p>
           )}
-          {loading && <p className="text-xl text-slate-700">Loading...</p>}
+          {loading && <p className="text-xl text-secondary">Loading...</p>}
           {!loading &&
             listings &&
             listings.map((listing) => (
@@ -241,7 +244,7 @@ export default function Search() {
           {showMore && (
             <button
               onClick={onShowMoreClick}
-              className="text-green-700 hover:underline p-7 text-center w-full"
+              className="text-accent hover:underline p-7 text-center w-full"
             >
               Show More
             </button>

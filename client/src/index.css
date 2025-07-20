@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: rgb(241,248,241);
+body {
+  @apply bg-background text-text font-sans;
+  min-height: 100vh;
+}
+
+/* Custom scrollbars for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #23232b;
+}
+::-webkit-scrollbar-thumb {
+  background: #44445a;
+  border-radius: 4px;
 }

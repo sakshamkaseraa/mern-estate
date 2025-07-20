@@ -46,32 +46,34 @@ export default function SignUp() {
 
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
+      <h1 className="text-3xl text-center font-semibold my-7 text-secondary">
+        Sign Up
+      </h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Username"
-          className="border p-3 rounded-lg"
+          className="border border-muted bg-surface text-text p-3 rounded-lg"
           id="username"
           onChange={handleChange}
         />
         <input
           type="email"
           placeholder="Email"
-          className="border p-3 rounded-lg"
+          className="border border-muted bg-surface text-text p-3 rounded-lg"
           id="email"
           onChange={handleChange}
         />
         <input
           type="password"
           placeholder="Password"
-          className="border p-3 rounded-lg"
+          className="border border-muted bg-surface text-text p-3 rounded-lg"
           id="password"
           onChange={handleChange}
         />
         <button
           disabled={loading}
-          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:bg-opacity-70"
+          className="bg-secondary text-primary p-3 rounded-lg uppercase hover:bg-opacity-80"
         >
           {loading ? "Loading" : "Sign Up"}
         </button>
@@ -80,10 +82,10 @@ export default function SignUp() {
       <div className="flex gap-2 mt-4">
         <p>Have an account ?</p>
         <Link to={"/sign-in"}>
-          <span className="text-blue-700">Sign In</span>
+          <span className="text-info">Sign In</span>
         </Link>
       </div>
-      {error && <p className="text-red-500 mt-4">{error}</p>}
+      {error && <p className="text-danger mt-4">{error}</p>}
     </div>
   );
 }

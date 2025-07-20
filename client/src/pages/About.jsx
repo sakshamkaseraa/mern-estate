@@ -2,8 +2,8 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="py-20 px-4 max-w-6xl mx-auto text-gray-600">
-      <h1 className="text-3xl font-light mb-4 text-slate-800">
+    <div className="py-20 px-4 max-w-6xl mx-auto text-muted">
+      <h1 className="text-3xl font-light mb-4 text-secondary">
         About <span className="font-bold italic">Kasera Estate</span>
       </h1>
       <p className="mb-4">
@@ -13,7 +13,7 @@ export default function About() {
         exceptional service and making the buying and selling process as smooth
         as possible.
       </p>
-      <p className="mb-4 text-gray-500">
+      <p className="mb-4 text-muted">
         Our mission is to help our clients achieve their real estate goals by
         providing expert advice, personalized service, and a deep understanding
         of the local market. Whether you are looking to buy, sell, or rent a
